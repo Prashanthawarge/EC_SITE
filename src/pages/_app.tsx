@@ -5,7 +5,6 @@ import '@/styles/global.css';
 import "../styles/index.css";
 import "../styles/leaderShip.css";
 import "../styles/clientSuccess.css";
-import "../styles/agribusinesses.css";
 import "../styles/customerAppDev.css";
 import "../styles/registration.css";
 import "../styles/contactUs.css";
