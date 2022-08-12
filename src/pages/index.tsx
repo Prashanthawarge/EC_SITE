@@ -1,5 +1,5 @@
 import { NextSeo } from 'next-seo';
-import Page from '@/components/page';
+import Page from '../components/page/index';
 import Header from '../components/header/index';
 import Footer from '../components/footer/index';
 import Document, { Html, Head, Main, NextScript } from 'next/document'
