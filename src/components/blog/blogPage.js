@@ -1,5 +1,6 @@
 import React, { useEffect, useState } from 'react';
 import Image from "next/image";
+import Loader from '../loader/index'
 import Link from "next/link";
 import { ApolloClient, InMemoryCache, ApolloProvider, gql } from '@apollo/client';
 import { parseISO, format } from 'date-fns'
@@ -68,9 +69,12 @@ useEffect(() => {
   return (
     <div className="homeMainContainer" >
       <div className="homeContainer ">
-      <div className='newsmainContaier'>
         {
           
+          blog == '' ? <Loader/> :
+
+      <div className='newsmainContaier'>
+        { 
            blog && blog.map((blog, id)=>{
              
             const date = parseISO(blog.node.date)
@@ -135,16 +139,12 @@ useEffect(() => {
            })
         }
    
-       
-       
-
-         
-     
    </div>
+}
       </div>
     </div>
-  );
-};
+  )
+}
 
 export default FeatureNewsDetails;
 
