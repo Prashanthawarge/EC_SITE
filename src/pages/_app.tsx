@@ -5,6 +5,7 @@ import '@/styles/global.css';
 import "../styles/index.css";
 import "../styles/leaderShip.css";
 import "../styles/clientSuccess.css";
+import "../styles/agribusinesses.css";
 import "../styles/customerAppDev.css";
 import "../styles/registration.css";
 import "../styles/contactUs.css";
@@ -19,6 +20,7 @@ import "../styles/blog.css";
 import "../styles/blogReadMore.css";
 import { setup } from 'twind';
 import twindConfig from '../twind.config';
+import Head from 'next/head';
 
 if (typeof window !== `undefined`) {
   setup(twindConfig);

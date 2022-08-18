@@ -3,10 +3,9 @@ module.exports = {
   images: {
     domains: [
      'ecinfosolutions.com',
-     'http://ecinfosolutions.com',
-     'eclocalwebsite.local',
     ],
   },
+
   webpack(config) {
     config.module.rules.push({
       test: /\.svg$/,
@@ -15,8 +14,10 @@ module.exports = {
 
     return config;
   },
-    target: 'serverless'
+    
+  target: 'serverless',
 };
+
 
 
 
