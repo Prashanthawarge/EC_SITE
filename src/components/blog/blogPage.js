@@ -55,15 +55,9 @@ const client = new ApolloClient({
 
  }
 
-
-
 useEffect(() => {
   dataGet();
 }, [])
-
-
-
-
 
 
   return (
