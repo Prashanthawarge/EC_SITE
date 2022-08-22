@@ -1,6 +1,6 @@
 import { tw } from 'twind';
 import { useState } from 'react';
-import Button from '@/components/button';
+import Button from '@/components/button'; 
 import Link from 'next/link'
 import { RiArrowDownSLine} from 'react-icons/ri';
 import { BiSearch} from 'react-icons/bi';
