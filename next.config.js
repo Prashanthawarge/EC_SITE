@@ -1,9 +1,7 @@
 module.exports = {
   reactStrictMode: true,
   images: {
-    domains: [
-     'ecinfosolutions.com',
-    ],
+    domains: ["ecinfosolutions.com"],
   },
 
   webpack(config) {
