@@ -1,9 +1,9 @@
-import React, { useEffect, useState } from 'react';
-
-import Loader from '../loader/index';
+import { format, parseISO } from 'date-fns';
 import Link from 'next/link';
+import React, { useEffect, useState } from 'react';
+import Loader from '../loader/index';
 
-import { parseISO, format } from 'date-fns';
+
 
 const FeatureNewsDetails = ({}) => {
   const [blogApiData, setBlogApiData] = useState([]);

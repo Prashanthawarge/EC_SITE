@@ -1,5 +1,6 @@
 {
   "recommendations": [
-    "arin.entitas-unused-components-finder"
+    "arin.entitas-unused-components-finder",
+    "pranaygp.vscode-css-peek"
   ]
 }

@@ -1,9 +1,9 @@
 import React from 'react';
-import YouTube from 'react-youtube';
-import { BsPalette, BsGem } from 'react-icons/bs';
-import { FaPenNib, FaSwatchbook, FaDiceD20 } from 'react-icons/fa';
 import { BiShapeSquare } from 'react-icons/bi';
+import { BsGem, BsPalette } from 'react-icons/bs';
+import { FaDiceD20, FaPenNib, FaSwatchbook } from 'react-icons/fa';
 import { RiPencilRuler2Line } from 'react-icons/ri';
+import YouTube from 'react-youtube';
 
 function pytDevPage({}) {
   return (

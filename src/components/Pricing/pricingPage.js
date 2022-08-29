@@ -1,7 +1,5 @@
-import React, { useState, useEffect } from 'react';
 import Link from 'next/link';
-import { useRouter } from 'next/router';
-import Document, { DocumentContext, Html, Head, Main } from 'next/document';
+import React from 'react';
 
 function pricingPage({}) {
   return (

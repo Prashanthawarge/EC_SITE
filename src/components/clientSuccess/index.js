@@ -1,6 +1,6 @@
 import { useState } from 'react';
-import { FaHeart } from 'react-icons/fa';
 import { AiFillCaretDown } from 'react-icons/ai';
+import { FaHeart } from 'react-icons/fa';
 
 function Index({}) {
   const [isShown1, setIsShown1] = useState(false);
@@ -96,6 +96,7 @@ function Index({}) {
             <FaHeart style />
             &nbsp;EC Infosolutions & we are thankful.
           </h1>
+          <Link></Link>
           <p className="homeParaText">
             For EC, customer engagement means a coming together of ideas,
             strategies, execution, revenue acquisition, plan Bs, and the overall

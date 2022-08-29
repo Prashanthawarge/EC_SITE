@@ -1,6 +1,6 @@
+import Link from 'next/link';
 import React from 'react';
 import YouTube from 'react-youtube';
-import Link from 'next/link';
 
 function IndexPage({}) {
   return (

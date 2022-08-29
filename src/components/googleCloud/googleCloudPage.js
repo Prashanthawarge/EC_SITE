@@ -1,18 +1,19 @@
-import React from 'react';
 import Link from 'next/link';
-
+import React from 'react';
 import {
-  FaCar,
-  FaUniversity,
-  FaBuilding,
-  FaMoneyBill,
-  FaPhoneVolume,
-  FaLaptop,
-  FaIndustry,
+  FaBolt, FaBuilding, FaCar,
+
+
+
+
+
+  FaIndustry, FaLaptop,
+
   FaLeaf,
-  FaMedkit,
-  FaBolt,
+  FaMedkit, FaMoneyBill,
+  FaPhoneVolume, FaUniversity
 } from 'react-icons/fa';
+
 
 function googleCloudPage({}) {
   return (

@@ -1,6 +1,6 @@
-import { tw } from 'twind';
 import Button from '@/components/button';
 import Link from 'next/link';
+import { tw } from 'twind';
 
 const Footer = () => (
   <footer
