@@ -1,12 +1,8 @@
 import { tw } from 'twind';
 
-interface IButton {
-  primary?: boolean;
-  children: React.ReactNode;
-  modifier?: string;
-}
 
-const Button = ({ primary, modifier, children, ...rest }: IButton) => {
+
+const Button = ({ primary, modifier, children, ...rest }) => {
   const baseStyle = `font-medium py-2 px-4  rounded`;
   const styles = primary
     ? `ecBlue text-white border-indigo-500 hover:bg-blue-400 rounded-full text-sm`

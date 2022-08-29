@@ -7,14 +7,11 @@ import { BiSearch} from 'react-icons/bi';
 import { AiOutlineClose } from 'react-icons/ai';
 
 
-interface IMenuButton {
-  toggleMenu: React.MouseEventHandler<HTMLButtonElement>;
-  showMenu: boolean;
-}
 
 
 
-const MenuButton = ({ toggleMenu, showMenu }: IMenuButton) => (
+
+const MenuButton = ({ toggleMenu, showMenu }) => (
 
 
 
@@ -250,7 +247,7 @@ const Navigation = () => {
   const [serchShow, setSerchShow] = useState(false)
   const [serchValue, setSerchValue] = useState()
 
- const handleSerchValue = (e : any) => {
+ const handleSerchValue = (e) => {
    setSerchValue(e.target.value)
  }
 
