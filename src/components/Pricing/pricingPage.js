@@ -1,12 +1,27 @@
 import Link from 'next/link';
-import React from 'react';
+import React, { useEffect, useState } from 'react';
 
 function pricingPage({}) {
+  const [update, setUpdate] = useState(false);
+
+  useEffect(() => {
+    const script = document.createElement('script');
+
+    script.src = 'https://ucalc.pro/api/widget.js?id=295368';
+    script.async = true;
+
+    document.body.appendChild(script);
+
+    return () => {
+      document.body.removeChild(script);
+    };
+  }, []);
+
   return (
     <>
       <div className="pytDevMainContainer">
         <div className="pytDevContainer">
-          <div className="uCalc_295368" data-ad="true"></div>
+          <div className="uCalc_295368"></div>
 
           <div className="moreFreedomContainer">
             <div className="partnerShips">

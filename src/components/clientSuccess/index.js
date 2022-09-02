@@ -96,7 +96,6 @@ function Index({}) {
             <FaHeart style />
             &nbsp;EC Infosolutions & we are thankful.
           </h1>
-          <Link></Link>
           <p className="homeParaText">
             For EC, customer engagement means a coming together of ideas,
             strategies, execution, revenue acquisition, plan Bs, and the overall

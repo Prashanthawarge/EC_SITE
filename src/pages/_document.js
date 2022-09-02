@@ -1,11 +1,5 @@
+import Document, { Head, Html, Main, NextScript } from 'next/document';
 import * as React from 'react';
-import Document, {
-  DocumentContext,
-  Html,
-  Head,
-  Main,
-  NextScript,
-} from 'next/document';
 import { setup } from 'twind';
 import { asyncVirtualSheet, getStyleTagProperties } from 'twind/server';
 import twindConfig from '../twind.config';
@@ -40,7 +34,6 @@ class MyDocument extends Document {
     return (
       <Html lang="en">
         <Head>
-          <script src="https://ucalc.pro/api/widget.js?id=295368" defer />
           <meta
             http-equiv="Content-Security-Policy"
             content="upgrade-insecure-requests"
