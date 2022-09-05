@@ -1,5 +1,7 @@
 import axios from 'axios';
-import React, { useState } from 'react';
+import React, { useEffect, useState } from 'react';
+import PhoneInput from 'react-phone-number-input';
+import 'react-phone-number-input/style.css';
 
 function contactUsPage({}) {
   const [values, setValues] = useState({
@@ -9,7 +11,30 @@ function contactUsPage({}) {
     mobile_number: '',
     project_req: '',
   });
+  const [ApiData, setApiData] = useState([]);
 
+  // Dynamic Data Handling
+  useEffect(() => {
+    async function getUser() {
+      try {
+        const response = await fetch('');
+
+        if (!response.ok) {
+          throw new Error(`Error! status: ${response.status}`);
+        }
+
+        const data = await response.json();
+        setBlogApiData(data);
+        return data;
+      } catch (err) {
+        console.log(err);
+      }
+    }
+
+    getUser();
+  }, []);
+
+  // Form handling -----
   const { email, name, company_name, mobile_number, project_req } = values;
 
   const handleChange = (e) => {
@@ -18,7 +43,7 @@ function contactUsPage({}) {
 
   const handleSubmit = async (e) => {
     e.preventDefault();
-    console.log('enter the input ');
+    console.log(values);
 
     axios({
       method: 'post',
@@ -31,6 +56,12 @@ function contactUsPage({}) {
       .catch(function (error) {
         console.log(error);
       });
+  };
+  const handleChang = (value, name) => {
+    setValues({
+      ...values,
+      mobile_number: value,
+    });
   };
 
   return (
@@ -60,6 +91,7 @@ function contactUsPage({}) {
                 name="email"
                 value={email}
                 onChange={handleChange}
+                required
               />
               <label>Name</label>
               <input
@@ -68,6 +100,8 @@ function contactUsPage({}) {
                 name="name"
                 value={name}
                 onChange={handleChange}
+                minlength="3"
+                required
               />
               <label>Company Name</label>
               <input
@@ -76,20 +110,25 @@ function contactUsPage({}) {
                 name="company_name"
                 value={company_name}
                 onChange={handleChange}
+                required
               />
               <label>Mobile phone number*</label>
-              <input
+              <PhoneInput
                 type="tel"
                 id="last"
                 name="mobile_number"
                 value={mobile_number}
-                onChange={handleChange}
+                onChange={(value) => handleChang(value, mobile_number)}
+                defaultCountry="IN"
+                required
               />
+
               <label>Describe your project requirements</label>
               <textarea
                 name="project_req"
                 value={project_req}
                 onChange={handleChange}
+                required
               ></textarea>
               <button type="submit">Request a Quote</button>
             </form>

@@ -1,11 +1,51 @@
-import React from 'react';
+import axios from 'axios';
+import React, { useState } from 'react';
 import { BiShapeSquare } from 'react-icons/bi';
 import { BsGem, BsPalette } from 'react-icons/bs';
 import { FaDiceD20, FaPenNib, FaSwatchbook } from 'react-icons/fa';
 import { RiPencilRuler2Line } from 'react-icons/ri';
+import PhoneInput from 'react-phone-number-input';
+import 'react-phone-number-input/style.css';
 import YouTube from 'react-youtube';
 
 function pytDevPage({}) {
+  const [values, setValues] = useState({
+    email: '',
+    name: '',
+    company_name: '',
+    mobile_number: '',
+    project_req: '',
+  });
+
+  const { email, name, company_name, mobile_number, project_req } = values;
+
+  const handleChange = (e) => {
+    setValues({ ...values, [e.target.name]: e.target.value });
+  };
+
+  const handleSubmit = async (e) => {
+    e.preventDefault();
+    console.log(values);
+
+    axios({
+      method: 'post',
+      url: 'http://e04d-219-91-170-120.ngrok.io/api/inquery/',
+      data: values,
+    })
+      .then(function (response) {
+        console.log(response);
+      })
+      .catch(function (error) {
+        console.log(error);
+      });
+  };
+  const handleChang = (value, name) => {
+    setValues({
+      ...values,
+      mobile_number: value,
+    });
+  };
+
   return (
     <div className="pytDevMainContainer">
       <div className="pytDevContainer">
@@ -24,18 +64,58 @@ function pytDevPage({}) {
               <li>500+ customers in 15 countries globally</li>
               <li>Global Delivery & Exceptional Support</li>
             </ul>
-            <form>
+            <form
+              action="/send-data-here"
+              method="post"
+              onSubmit={handleSubmit}
+            >
               <label>Email</label>
-              <input type="email" />
+              <input
+                type="email"
+                id="email"
+                name="email"
+                value={email}
+                onChange={handleChange}
+                required
+              />
               <label>Name</label>
-              <input type="text" />
+              <input
+                type="text"
+                id="last"
+                name="name"
+                value={name}
+                onChange={handleChange}
+                minlength="3"
+                required
+              />
               <label>Company Name</label>
-              <input type="text" />
-              <label>Mobile phone number</label>
-              <input type="tel" />
+              <input
+                type="text"
+                id="company_name"
+                name="company_name"
+                value={company_name}
+                onChange={handleChange}
+                required
+              />
+              <label>Mobile phone number*</label>
+              <PhoneInput
+                type="tel"
+                id="last"
+                name="mobile_number"
+                value={mobile_number}
+                onChange={(value) => handleChang(value, mobile_number)}
+                defaultCountry="IN"
+                required
+              />
+
               <label>Describe your project requirements</label>
-              <textarea></textarea>
-              <button>Submit</button>
+              <textarea
+                name="project_req"
+                value={project_req}
+                onChange={handleChange}
+                required
+              ></textarea>
+              <button type="submit">Submit</button>
             </form>
           </div>
         </div>

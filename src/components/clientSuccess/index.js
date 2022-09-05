@@ -1,4 +1,4 @@
-import { useState } from 'react';
+import { useEffect, useState } from 'react';
 import { AiFillCaretDown } from 'react-icons/ai';
 import { FaHeart } from 'react-icons/fa';
 
@@ -16,6 +16,27 @@ function Index({}) {
   const [isShown11, setIsShown11] = useState(false);
   const [isShown12, setIsShown12] = useState(false);
   const [isShown13, setIsShown13] = useState(false);
+
+  const [ApiData, setApiData] = useState([]);
+  useEffect(() => {
+    async function getUser() {
+      try {
+        const response = await fetch('');
+
+        if (!response.ok) {
+          throw new Error(`Error! status: ${response.status}`);
+        }
+
+        const data = await response.json();
+        setBlogApiData(data);
+        return data;
+      } catch (err) {
+        console.log(err);
+      }
+    }
+
+    getUser();
+  }, []);
 
   const handleClick1 = (event) => {
     // 👇️ toggle visibility

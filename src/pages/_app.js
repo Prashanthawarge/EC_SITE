@@ -1,5 +1,6 @@
 import { NextSeo } from 'next-seo';
 import { setup } from 'twind';
+import '../styles/404.css';
 import '../styles/blog.css';
 import '../styles/blogReadMore.css';
 import '../styles/clientSuccess.css';

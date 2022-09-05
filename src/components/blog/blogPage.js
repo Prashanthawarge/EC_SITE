@@ -3,8 +3,6 @@ import Link from 'next/link';
 import React, { useEffect, useState } from 'react';
 import Loader from '../loader/index';
 
-
-
 const FeatureNewsDetails = ({}) => {
   const [blogApiData, setBlogApiData] = useState([]);
   const [blogImage, setBlogImage] = useState('');
@@ -29,7 +27,6 @@ const FeatureNewsDetails = ({}) => {
 
     getUser();
   }, []);
-
   console.log(blogApiData);
 
   return (

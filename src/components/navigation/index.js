@@ -174,8 +174,8 @@ const MobileMenu = () => {
                     <Link href="/customerAppDev">Custom App Development</Link>
                     <Link href="/pytDev">Python Developer</Link>
                     <Link href="/customerAppDev">C# Developer</Link>
-                    <Link href="#">React Native Developer</Link>
                     <Link href="#">ReactJS Developer</Link>
+                    <Link href="#">React Native Developer</Link>
                   </div>
                 </div>
                 <div className="techList" onClick={techHandile2}>
@@ -191,8 +191,8 @@ const MobileMenu = () => {
                     className="hamMenuList"
                     style={{ display: isShownTech2 ? 'none' : 'flex' }}
                   >
-                    <Link href="#">Freedom CTRM</Link>
                     <Link href="/freeVocal">Freevocal</Link>
+                    <Link href="#">HeadlessBlog.com</Link>
                     <Link href="#">loT Core</Link>
                     <Link href="/labCore">Lab Core</Link>
                     <Link href="/pricing">Pricing | ROI Calculator</Link>
@@ -211,7 +211,7 @@ const MobileMenu = () => {
                     className="hamMenuList"
                     style={{ display: isShownTech3 ? 'none' : 'flex' }}
                   >
-                    <Link href="/labCore">Agribusinesses</Link>
+                    <Link href="/agribusiness">Agribusinesses</Link>
                     <Link href="/eCommerce">eCommerce & Retail</Link>
                     <Link href="#">ESG</Link>
                     <Link href="/manufacturing">Manufacturing</Link>
@@ -235,7 +235,7 @@ const MobileMenu = () => {
                     <Link href="#">Azure Partner</Link>
                     <Link href="/googleCloud">Google Cloud Partner</Link>
                     <Link href="/shopify">Shopify Partner</Link>
-                    <Link href="#">UIPath Partner</Link>
+                    <Link href="/partnerWithEc">Zoho Partner</Link>
                   </div>
                 </div>
               </div>
@@ -253,7 +253,8 @@ const MobileMenu = () => {
               >
                 <Link href="#">AI & Predictive Analytics</Link>
                 <Link href="#">BlockChain: dApps | STO | ICO</Link>
-                <Link href="#">TechMergers</Link>
+                <Link href="#">Sales, Service & Marketing CRM</Link>
+                <Link href="/pricing">ROI Calculator</Link>
                 <Link href="/blog">Blog</Link>
               </div>
             </div>
@@ -320,7 +321,7 @@ const Navigation = () => {
                     <Link href="/leaderShip">Leadership</Link>
                     <Link href="/clientSuccess">Client Success</Link>
                     <Link href="#">Careers</Link>
-                    <Link href="#">Partner with EC</Link>
+                    <Link href="/partnerWithEc">Partner with EC</Link>
                     <Link href="/contactUs">Contact Us</Link>
                   </div>
                 </a>
@@ -356,10 +357,10 @@ const Navigation = () => {
                           <Link href="/customerAppDev">
                             Custom App Development
                           </Link>
-                          <Link href="/pytDev">Python Developer</Link>
-                          <Link href="/customerAppDev">C# Developer</Link>
-                          <Link href="#">React Native Developer</Link>
+                          <Link href="/customerAppDev">C#.net & Sharepoint Developers</Link>
+                          <Link href="/pytDev">Django Python Developers</Link>
                           <Link href="#">ReactJS Developer</Link>
+                          <Link href="#">React Native Developer</Link>
                         </div>
                         <div
                           className="menuDiv"
@@ -367,8 +368,8 @@ const Navigation = () => {
                         >
                           <h3 className="TechServTitle">PLATFORM</h3>
 
-                          <Link href="#">Freedom CTRM</Link>
                           <Link href="/freeVocal">Freevocal</Link>
+                          <Link href="#">HeadlessBlog.com</Link>
                           <Link href="#">loT Core</Link>
                           <Link href="/labCore">Lab Core</Link>
                           <Link href="/pricing">Pricing | ROI Calculator</Link>
@@ -381,7 +382,7 @@ const Navigation = () => {
                         >
                           <h3 className="TechServTitle">INDUSTRIES</h3>
 
-                          <Link href="/labCore">Agribusinesses</Link>
+                          <Link href="/agribusiness">Agribusinesses</Link>
                           <Link href="/eCommerce">eCommerce & Retail</Link>
                           <Link href="#">ESG</Link>
                           <Link href="/manufacturing">Manufacturing</Link>
@@ -394,7 +395,7 @@ const Navigation = () => {
                           <Link href="#">Azure Partner</Link>
                           <Link href="/googleCloud">Google Cloud Partner</Link>
                           <Link href="/shopify">Shopify Partner</Link>
-                          <Link href="#">UIPath Partner</Link>
+                          <Link href="partnerWithEc">Zoho Partner</Link>
                         </div>
                       </div>
                     </div>
@@ -416,7 +417,8 @@ const Navigation = () => {
                   <div className={tw(`dropdown-content consl`)}>
                     <Link href="#">AI & Predictive Analytics</Link>
                     <Link href="#">BlockChain: dApps | STO | ICO</Link>
-                    <Link href="#">TechMergers</Link>
+                    <Link href="#">Sales, Service & Marketing CRM</Link>
+                    <Link href="/pricing">ROI Calculator</Link>
                     <Link href="/blog">Blog</Link>
                   </div>
                 </a>

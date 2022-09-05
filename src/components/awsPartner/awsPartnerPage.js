@@ -1,11 +1,71 @@
-import React from 'react';
+import axios from 'axios';
+import React, { useEffect, useState } from 'react';
 import { BiShapeSquare } from 'react-icons/bi';
 import { BsGem, BsPalette } from 'react-icons/bs';
 import { FaDiceD20, FaPenNib, FaSwatchbook } from 'react-icons/fa';
 import { RiPencilRuler2Line } from 'react-icons/ri';
+import PhoneInput from 'react-phone-number-input';
+import 'react-phone-number-input/style.css';
 import YouTube from 'react-youtube';
 
 function pytDevPage({}) {
+  const [apiData, SetApiData] = useState([]);
+  const [values, setValues] = useState({
+    email: '',
+    name: '',
+    company_name: '',
+    mobile_number: '',
+    project_req: '',
+  });
+  // Handling the form Data-----
+  const { email, name, company_name, mobile_number, project_req } = values;
+  const handleChange = (e) => {
+    setValues({ ...values, [e.target.name]: e.target.value });
+  };
+  const handleSubmit = async (e) => {
+    e.preventDefault();
+    console.log(values);
+    axios({
+      method: 'post',
+      url: '',
+      data: values,
+    })
+      .then(function (response) {
+        console.log(response);
+      })
+      .catch(function (error) {
+        console.log(error);
+      });
+  };
+  const handleChang = (value, name) => {
+    setValues({
+      ...values,
+      mobile_number: value,
+    });
+  };
+
+  // Handling the dynamic content data-----
+
+  useEffect(() => {
+    async function getUser() {
+      try {
+        const response = await fetch('');
+
+        if (!response.ok) {
+          throw new Error(`Error! status: ${response.status}`);
+        }
+
+        const data = await response.json();
+        SetApiData(data);
+        return data;
+      } catch (err) {
+        console.log(err);
+      }
+    }
+
+    getUser();
+  }, []);
+
   return (
     <div className="pytDevMainContainer">
       <div className="pytDevContainer">
@@ -26,18 +86,58 @@ function pytDevPage({}) {
               <li>500+ customers in 15 countries globally</li>
               <li>Global Delivery & Exceptional Support</li>
             </ul>
-            <form>
+            <form
+              action="/send-data-here"
+              method="post"
+              onSubmit={handleSubmit}
+            >
               <label>Email</label>
-              <input type="email" />
+              <input
+                type="email"
+                id="email"
+                name="email"
+                value={email}
+                onChange={handleChange}
+                required
+              />
               <label>Name</label>
-              <input type="text" />
+              <input
+                type="text"
+                id="last"
+                name="name"
+                value={name}
+                onChange={handleChange}
+                minlength="3"
+                required
+              />
               <label>Company Name</label>
-              <input type="text" />
-              <label>Mobile phone number</label>
-              <input type="tel" />
+              <input
+                type="text"
+                id="company_name"
+                name="company_name"
+                value={company_name}
+                onChange={handleChange}
+                required
+              />
+              <label>Mobile phone number*</label>
+              <PhoneInput
+                type="tel"
+                id="last"
+                name="mobile_number"
+                value={mobile_number}
+                onChange={(value) => handleChang(value, mobile_number)}
+                defaultCountry="IN"
+                required
+              />
+
               <label>Describe your project requirements</label>
-              <textarea></textarea>
-              <button>Submit</button>
+              <textarea
+                name="project_req"
+                value={project_req}
+                onChange={handleChange}
+                required
+              ></textarea>
+              <button type="submit">Submit</button>
             </form>
           </div>
         </div>
@@ -363,38 +463,106 @@ function pytDevPage({}) {
             </p>
           </div>
           <div>
-            <h2 className="questionTitle"></h2>
-            <p className="questonPara"></p>
+            <h2 className="questionTitle">How does AWS work on AI Solution?</h2>
+            <p className="questonPara">
+              AI solutions enable AWS to easily address common use cases, which
+              include modernizing your contact center, offering personalized
+              recommendations to customers, increasing user engagement and
+              improving security & safety. To know more, write to us at
+              hello@ecinfosolutions.com
+            </p>
           </div>
 
           <div>
-            <h2 className="questionTitle"></h2>
-            <p className="questonPara"></p>
+            <h2 className="questionTitle">
+              What is the lambda function in python?
+            </h2>
+            <p className="questonPara">
+              The Lambada Function in Python is an anonymous function. Just like
+              the def keyword is used for defining a normal Python function, the
+              lambada keyword can be used to define anonymous Python functions.
+              To know more about Python for your business, write to us at
+              hello@ecinfosolutions.com
+            </p>
           </div>
 
           <div>
-            <h2 className="questionTitle"></h2>
-            <p className="questonPara"></p>
+            <h2 className="questionTitle">How does AWS CloudTrail work?</h2>
+            <p className="questonPara">
+              Any actions by users or on behalf of users by an AWS service is
+              captured on CloudTrail. For instance, a call by AWS CloudFormation
+              CreateStack is likely to result in additional API calls to
+              services required by the AWS CloudFormation template, which
+              include Amazon EBS, Amazon RDS, and Amazon EC2. To know more about
+              AWS for your business, write to us at hello@ecinfosolutions.com
+            </p>
           </div>
 
           <div>
-            <h2 className="questionTitle"></h2>
-            <p className="questonPara"></p>
+            <h2 className="questionTitle">What are the services of AWS ?</h2>
+            <p className="questonPara">
+              Amazon Web Services (AWS) offers a wide set of cloud-based
+              products that can be accessed from across the globe. These include
+              databases, storage, networking, analytics, developer & management
+              tools, mobile, IoT, enterprise & security apps. With these tools,
+              organizations can lower IT costs, scale & witness faster growth.
+              To know more about AWS for your business, write to us at
+              hello@ecinfosolutions.com
+            </p>
           </div>
 
           <div>
-            <h2 className="questionTitle"></h2>
-            <p className="questonPara"></p>
+            <h2 className="questionTitle">
+              What are the benefits of AWS cloud computing?
+            </h2>
+            <p className="questonPara">
+              Here are some of the key benefits of AWS cloud computing:
+            </p>
+            <ul className="questonPara" style={{ listStyle: 'disc' }}>
+              <li>
+                Enables you to opt for variable expenditure instead of capital
+                expenditure - you can pay only for the computing resources you
+                consume instead of investing in a data centre.
+              </li>
+              <li>Higher economies of scale with lower pay-as-yo-go prices.</li>
+              <li>
+                Flexibility in terms of accessing the capacity you need, and
+                just a few minutes of heads up to scale it up & down.
+              </li>
+              <li>Higher speed & agility of IT operations.</li>
+              <li>
+                Enables companies to focus on their core businesses instead of
+                having to manage IT infrastructure such as powering, racking &
+                stacking.
+              </li>
+              <li>
+                Enables businesses to expand globally in minutes with lower
+                latency and better customer experience at a minimal cost.
+              </li>
+            </ul>
           </div>
 
           <div>
-            <h2 className="questionTitle"></h2>
-            <p className="questonPara"></p>
+            <h2 className="questionTitle">
+              Who is the authorized partner of Amazon Web Services In pune?
+            </h2>
+            <p className="questonPara">
+              EC Infosolutions Pvt. Ltd. Pune is an authorized Amazon Web
+              Services partner in Pune city, India. To know more about AWS for
+              your business, write to us at hello@ecinfosolutions.com
+            </p>
           </div>
 
           <div>
-            <h2 className="questionTitle"></h2>
-            <p className="questonPara"></p>
+            <h2 className="questionTitle">what is amazon ec2</h2>
+            <p className="questonPara">
+              Amazon EC2, or Amazon Elastic Compute Cloud, is a web-based
+              service that offers resizable & secure cloud-based computing
+              capacity. The simple web service interface of Amazon EC enables
+              you to configure capacity with minimum friction. Also, it gives
+              you total control over your computing resources as it allows you
+              to run on the proven computing environment of Amazon.
+            </p>
           </div>
         </div>
       </div>

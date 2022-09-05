@@ -41,6 +41,11 @@ input {
   margin: 15px;
 }
 
+.clutchBox{
+  margin-top: 130px;
+  margin-bottom: 100px;
+}
+
 .search-field {
   background: transparent;
   width: 100%;
@@ -150,7 +155,7 @@ input {
   font-weight: 400;
   font-family: 'Jost' !important;
   float: none;
-  color: #020202;
+  color: #161616;
   padding: 10px 40px;
   text-decoration: none;
   display: block;

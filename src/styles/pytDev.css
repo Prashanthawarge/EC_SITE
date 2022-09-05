@@ -43,9 +43,15 @@
   max-width: unset;
 }
 
+.djangoForm form label {
+  color: #33475b;
+  font-family: helvetica;
+  font-size: 13px;
+}
+
 .djangoForm form input {
   width: 100%;
-  border-bottom: 1px solid black;
+  border-bottom: 2px solid #cad5e2;
   background: #f7f7f7;
   margin: 10px 0px 30px 0px;
   box-shadow: none;

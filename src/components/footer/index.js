@@ -1,9 +1,47 @@
 import Button from '@/components/button';
+import axios from 'axios';
 import Link from 'next/link';
+import React, { useState } from 'react';
+import 'react-phone-number-input/style.css';
 import { tw } from 'twind';
 
-const Footer = () => (
-  <footer
+function Footer() {
+  const [values, setValues] = useState({
+    email: '',
+  });
+
+  const { email} = values;
+
+  const handleChange = (e) => {
+    setValues({[e.target.name]: e.target.value });
+  };
+
+  const handleSubmit = async (e) => {
+    e.preventDefault();
+    console.log(values);
+
+    axios({
+      method: 'post',
+      url: 'http://e04d-219-91-170-120.ngrok.io/api/inquery/',
+      data: values,
+    })
+      .then(function (response) {
+        console.log(response);
+      })
+      .catch(function (error) {
+        console.log(error);
+      });
+  };
+  const handleChang = (value, name) => {
+    setValues({
+      ...values,
+      mobile_number: value,
+    });
+  };
+
+  return (
+    <div>
+      <footer
     className={tw(`bg-white border-t border-gray-400 pt-14 pb-16`)}
     style={{ backgroundColor: '#f6faff' }}
   >
@@ -78,7 +116,7 @@ const Footer = () => (
                 <li
                   className={tw(`text-gray-800 text-sm font-medium leading-6`)}
                 >
-                  <Link href="#">Cookie Policy (US)</Link>
+                  <Link href="/partnerWithEc">Cookie Policy (US)</Link>
                 </li>
                 <li
                   className={tw(`text-gray-800 text-sm font-medium leading-6`)}
@@ -102,7 +140,7 @@ const Footer = () => (
                 <li
                   className={tw(`text-gray-800 text-sm font-medium leading-6`)}
                 >
-                  <Link href="/#">Partner with EC</Link>
+                  <Link href="/partnerWithEc">Partner with EC</Link>
                 </li>
                 <li
                   className={tw(`text-gray-800 text-sm font-medium leading-6`)}
@@ -125,20 +163,37 @@ const Footer = () => (
             Subscribe our newsletter
           </h4>
           <div className={tw(`flex w-full`)}>
+            <form
+            className={tw(`flex w-full`)}
+             action="/send-data-here"
+             method="post"
+             onSubmit={handleSubmit}>
             <input
               aria-label="email address"
-              type="text"
+              id="email"
+              type="email"
+              name="email"
+              value={email}
+              onChange={handleChange}
+              required
               className={tw(
                 `border border-gray-300 bg-gray-100 min-w-0 w-full rounded text-gray-800 py-2 px-3 mr-2`
               )}
               placeholder="Enter your email"
             />
-            <Button>Subscribe</Button>
+            <Button type='submit' >Subscribe</Button>
+            </form>
+          
           </div>
         </div>
       </div>
     </div>
   </footer>
-);
+  <div className='copyRightContainer'>
+    <div className='copyRight'>COPYRIGHT ©2022 EC INFOSOLUTIONS LLC</div>
+  </div>
+    </div>
+  )
+}
 
-export default Footer;
+export default Footer

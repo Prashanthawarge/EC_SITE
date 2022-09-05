@@ -1,9 +1,29 @@
 import Link from 'next/link';
-import React from 'react';
+import React, { useEffect, useState } from 'react';
 import YouTube from 'react-youtube';
 import { tw } from 'twind';
 
 function IndexPage({}) {
+  const [ApiData, setApiData] = useState([]);
+  useEffect(() => {
+    async function getUser() {
+      try {
+        const response = await fetch('');
+
+        if (!response.ok) {
+          throw new Error(`Error! status: ${response.status}`);
+        }
+
+        const data = await response.json();
+        setBlogApiData(data);
+        return data;
+      } catch (err) {
+        console.log(err);
+      }
+    }
+
+    getUser();
+  }, []);
   return (
     <div>
       <div className={tw(`homeMainContainer mt-20`)}>

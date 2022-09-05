@@ -1,21 +1,59 @@
+import axios from 'axios';
 import Link from 'next/link';
-import React from 'react';
+import React, { useState } from 'react';
 import {
-  FaBolt, FaBuilding, FaCar,
-
-
-
-
-
-  FaIndustry, FaLaptop,
-
+  FaBolt,
+  FaBuilding,
+  FaCar,
+  FaIndustry,
+  FaLaptop,
   FaLeaf,
-  FaMedkit, FaMoneyBill,
-  FaPhoneVolume, FaUniversity
+  FaMedkit,
+  FaMoneyBill,
+  FaPhoneVolume,
+  FaUniversity
 } from 'react-icons/fa';
-
+import PhoneInput from 'react-phone-number-input';
+import 'react-phone-number-input/style.css';
 
 function googleCloudPage({}) {
+  const [values, setValues] = useState({
+    email: '',
+    name: '',
+    company_name: '',
+    mobile_number: '',
+    project_req: '',
+  });
+
+  const { email, name, company_name, mobile_number, project_req } = values;
+
+  const handleChange = (e) => {
+    setValues({ ...values, [e.target.name]: e.target.value });
+  };
+
+  const handleSubmit = async (e) => {
+    e.preventDefault();
+    console.log(values);
+
+    axios({
+      method: 'post',
+      url: 'http://e04d-219-91-170-120.ngrok.io/api/inquery/',
+      data: values,
+    })
+      .then(function (response) {
+        console.log(response);
+      })
+      .catch(function (error) {
+        console.log(error);
+      });
+  };
+  const handleChang = (value, name) => {
+    setValues({
+      ...values,
+      mobile_number: value,
+    });
+  };
+
   return (
     <div style={{ marginTop: '100px' }}>
       <div className="glImg">
@@ -90,17 +128,57 @@ function googleCloudPage({}) {
               </div>
               <div className="glFormBox">
                 <div className="glfomeContainer">
-                  <form action="/send-data-here" method="post">
+                  <form
+                    action="/send-data-here"
+                    method="post"
+                    onSubmit={handleSubmit}
+                  >
                     <label>Email</label>
-                    <input type="email" id="email" name="email" />
+                    <input
+                      type="email"
+                      id="email"
+                      name="email"
+                      value={email}
+                      onChange={handleChange}
+                      required
+                    />
                     <label>Name</label>
-                    <input type="text" id="last" name="last" />
+                    <input
+                      type="text"
+                      id="last"
+                      name="name"
+                      value={name}
+                      onChange={handleChange}
+                      minlength="3"
+                      required
+                    />
                     <label>Company Name</label>
-                    <input type="text" id="companyName" name="companyName" />
+                    <input
+                      type="text"
+                      id="company_name"
+                      name="company_name"
+                      value={company_name}
+                      onChange={handleChange}
+                      required
+                    />
                     <label>Mobile phone number*</label>
-                    <input type="tel" id="last" name="last" />
+                    <PhoneInput
+                      type="tel"
+                      id="last"
+                      name="mobile_number"
+                      value={mobile_number}
+                      onChange={(value) => handleChang(value, mobile_number)}
+                      defaultCountry="IN"
+                      required
+                    />
+
                     <label>Describe your project requirements</label>
-                    <textarea></textarea>
+                    <textarea
+                      name="project_req"
+                      value={project_req}
+                      onChange={handleChange}
+                      required
+                    ></textarea>
                     <button type="submit">Request a Quote</button>
                   </form>
                 </div>
