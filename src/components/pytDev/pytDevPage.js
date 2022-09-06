@@ -1,4 +1,5 @@
-import React from 'react';
+import axios from 'axios';
+import React, { useEffect, useState } from 'react';
 import { BiShapeSquare } from 'react-icons/bi';
 import { BsGem, BsPalette } from 'react-icons/bs';
 import { FaDiceD20, FaPenNib, FaSwatchbook } from 'react-icons/fa';
@@ -6,6 +7,40 @@ import { RiPencilRuler2Line } from 'react-icons/ri';
 import YouTube from 'react-youtube';
 
 function pytDevPage({}) {
+  const [apiData, setApiData] = useState([]);
+  const [blogImage, setBlogImage] = useState('');
+  useEffect(() => {
+    async function getUser() {
+      // try {
+      //     const response = await fetch('http://13.233.111.218/api/python_django');
+
+      //   if (!response.ok) {
+      //     throw new Error(`Error! status: ${response.status}`);
+      //   }
+
+      //   const data = await response.json();
+
+      //   setApiData(data);
+      //   return data;
+      // } catch (err) {
+      //   console.log(err);
+      // }
+      axios({
+        method: 'GET',
+        headers: {
+          "Content-Type": 'application/json'
+        },
+        url: 'http://13.233.111.218/api/python_django'
+      })
+      .then(res => {
+        console.log('res==>', res)
+      }).catch(err => console.log('res==err--->', err))
+    }
+
+    getUser();
+  }, []);
+  console.log('Api',apiData);
+
   return (
     <div className="pytDevMainContainer">
       <div className="pytDevContainer">
