@@ -7,6 +7,8 @@ import { RiPencilRuler2Line } from 'react-icons/ri';
 import PhoneInput from 'react-phone-number-input';
 import 'react-phone-number-input/style.css';
 import YouTube from 'react-youtube';
+import Loader from '../loader/index';
+
 
 function pytDevPage({}) {
   const [apiData, SetApiData] = useState([]);
@@ -27,7 +29,7 @@ function pytDevPage({}) {
     console.log(values);
     axios({
       method: 'post',
-      url: '',
+      url: 'http://43.205.94.230/api/contact',
       data: values,
     })
       .then(function (response) {
@@ -45,11 +47,11 @@ function pytDevPage({}) {
   };
 
   // Handling the dynamic content data-----
-
+  
   useEffect(() => {
     async function getUser() {
       try {
-        const response = await fetch('');
+        const response = await fetch('http://43.205.94.230/api/aws_cloud');
 
         if (!response.ok) {
           throw new Error(`Error! status: ${response.status}`);
@@ -67,25 +69,30 @@ function pytDevPage({}) {
   }, []);
 
   return (
+    <>
+      {apiData == '' ? (
+        <Loader />
+      ) : (
     <div className="pytDevMainContainer">
       <div className="pytDevContainer">
         <div className="djangoContainer">
-          <div className="fixmyreooImg">
-            <img src="Fixmyreoo.png"></img>
-          </div>
+        <div className="fixmyreooImg">
+                <img src={apiData[0]?.fixmyrepo_image}></img>
+              </div>
           <div className="djangoForm">
-            <h1 className="djangoHeadingText">
-              Managed Amazon Web Services Experts
-            </h1>
-            <ul className="djangoList">
-              <li>Complete projects faster with certified developers</li>
-              <li>Fix buggy apps & websites with our quick hotfixes</li>
-              <li>App development experience of 14 years</li>
-              <li>Agile project management with a Dedicated Manager</li>
-              <li>Affordable: Pay only for measurable work</li>
-              <li>500+ customers in 15 countries globally</li>
-              <li>Global Delivery & Exceptional Support</li>
-            </ul>
+          <pre
+                  style={{
+                    fontFamily: 'jost',
+                    whiteSpace: 'pre-wrap',
+                    width: '100%',
+                  }}
+                  className="djangoForm"
+                  dangerouslySetInnerHTML={{
+                    __html: JSON.parse(
+                      apiData[0]?.AWS_services_experts
+                    )[0].value,
+                  }}
+                />
             <form
               action="/send-data-here"
               method="post"
@@ -186,16 +193,18 @@ function pytDevPage({}) {
             </div>
           </div>
           <div className="awzText">
-            <h1 className="djangoHeadingText">
-              Amazon Web Services Tech Stack
-            </h1>
-            <p className="djangopara">
-              Amazon Web Services (AWS) is the world’s most comprehensive and
-              broadly adopted cloud platform, offering over 175 fully featured
-              services from data centers globally. EC is proud to be an AWS
-              Partner and we have been providing expert services to hundreds of
-              clients over the years.
-            </p>
+          <pre
+                  style={{
+                    fontFamily: 'jost',
+                    whiteSpace: 'pre-wrap',
+                  }}
+                  className="djangoFormpre"
+                  dangerouslySetInnerHTML={{
+                    __html: JSON.parse(
+                      apiData[0]?.tech_stack
+                    )[0].value,
+                  }}
+                />
           </div>
         </div>
         <h1
@@ -206,6 +215,7 @@ function pytDevPage({}) {
         </h1>
 
         <div className="exmReqContainer">
+
           <div>
             <h1 className="exmText">
               Building an eCommerce Analytics dashboard
@@ -226,7 +236,7 @@ function pytDevPage({}) {
 
         <div className="exmReqContainer">
           <div>
-            <img src="fix.png"></img>
+            <img src={apiData[0]?.fixmyrepo_image2} ></img>
           </div>
           <div>
             <h1
@@ -244,15 +254,18 @@ function pytDevPage({}) {
 
         <div className="agileMainContainer" style={{ margin: '30px 0px' }}>
           <div className="fixContainer">
-            <h1 className="fixHeaderText">Request a quote</h1>
-            <p className="fixDevParaText">
-              We will schedule a no obligations discovery call with you within
-              24 hours of your enquiry. Before the discovery call you will
-              receive a Non Disclosure Agreement from us. During the discovery
-              call, your Project Manager will understand your project,
-              technology stack, development environment, required changes &
-              timeline.
-            </p>
+          <pre
+                  style={{
+                    fontFamily: 'jost',
+                    whiteSpace: 'pre-wrap',
+                  }}
+                  className="djangoFormpre"
+                  dangerouslySetInnerHTML={{
+                    __html: JSON.parse(
+                      apiData[0]?.request_a_quote
+                    )[0].value,
+                  }}
+                />
           </div>
           <div className="fixImg">
             <img src="dp1.png"></img>
@@ -261,14 +274,18 @@ function pytDevPage({}) {
 
         <div className="agileMainContainer" style={{ margin: '30px 0px' }}>
           <div className="fixContainer">
-            <h1 className="fixHeaderText">Pay for your hotfix</h1>
-            <p className="fixDevParaText">
-              After the free discovery call, you will receive a proposal from us
-              within the hour. This proposal will include the feasibility of
-              your project requirements, the estimated timeline and the costs
-              involved. If the terms of the proposal are accepted, a deposit of
-              50% will have to be paid to kickoff the project.
-            </p>
+          <pre
+                  style={{
+                    fontFamily: 'jost',
+                    whiteSpace: 'pre-wrap',
+                  }}
+                  className="djangoFormpre"
+                  dangerouslySetInnerHTML={{
+                    __html: JSON.parse(
+                      apiData[0]?.pay_for_hotfix
+                    )[0].value,
+                  }}
+                />
           </div>
           <div className="fixImg">
             <img src="dp2.png"></img>
@@ -567,6 +584,8 @@ function pytDevPage({}) {
         </div>
       </div>
     </div>
+    )}
+    </>
   );
 }
 

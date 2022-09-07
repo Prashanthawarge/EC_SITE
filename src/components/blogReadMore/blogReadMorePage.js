@@ -7,6 +7,7 @@ import { BiArrowBack } from 'react-icons/bi';
 import { CgFileDocument } from 'react-icons/cg';
 import { FaRegComment } from 'react-icons/fa';
 import { FiFolder } from 'react-icons/fi';
+import Loader from '../loader';
 import PostBody from './blogPara';
 
 
@@ -16,6 +17,7 @@ function opportunitiesDetailsNews({}) {
   const value = router.query;
   const author =  value.author;
   const aboutAuthor =  value.aboutAuthor;
+  const id =  value.id;
   const shortDescription = value.short_description;
   const img = value.img;
   const data = value.para;
@@ -29,7 +31,7 @@ function opportunitiesDetailsNews({}) {
     async function getUser() {
       try {
         const response = await fetch(
-          ''
+          `http://43.205.94.230/api/blogs/${id}`
         );
 
         if (!response.ok) {
@@ -46,22 +48,27 @@ function opportunitiesDetailsNews({}) {
 
     getUser();
   }, []);
- 
+ console.log('selected blog',blogApiData)
+ console.log('selected', id)
 
 
   return (
     
+    <>
+        {blogApiData == '' ? (
+          <Loader />
+        ) : (
     <div className='opportunitiesDetailsContainer'>
                   
           <div className='opportunitiesDetailsImageContainer'>
                <div className="opportunitiesDetailsImagebox">
 <img 
-  src={img}
+  src={blogApiData.blog_image}
   alt="VPN Illustrasi"
 ></img> 
    </div>
           <div className="blogBox">
-           <h1 className='mainTitle'>{title}</h1>
+           <h1 className='mainTitle'>{blogApiData.title}</h1>
            <div className='smallBlogBox'>
              <div className='smallBlogInBox'>
              <CgFileDocument/>
@@ -69,14 +76,14 @@ function opportunitiesDetailsNews({}) {
              </div>
              <div className='smallBlogInBox'>
              <FiFolder/>
-            <span className='smallblogText'>BLOG, BUSINESS, DECISIONS, INNOVATION IS LIFE, TECHNOLOGY, TRENDING</span>
+            <span className='smallblogText'>{blogApiData.tags}</span>
              </div>
             
            </div >
            <div className='smallBlogBox'>
              <div className='smallBlogInBox'>
              <AiOutlineTags/>
-            <span className='smallblogText'>DIGITAL MARKETING-SOCIAL MEDIA MARKETING-DIGITAL MARKETING 2021-DIGITAL MARKETING TRENDS-SOCIAL MEDIA MARKETING TOOLS-DIGITAL TRENDS 20210</span>
+            <span className='smallblogText'>{blogApiData.sub_tags}</span>
              </div>
              <div className='smallBlogInBox'>
              <FaRegComment/>
@@ -98,7 +105,7 @@ function opportunitiesDetailsNews({}) {
             <div className='opporDetailsImage'>
             <img
         
-       src={img}
+       src={blogApiData.blog_image}
        alt="VPN Illustrasi"
        layout="fill"
        objectFit="cover"
@@ -116,7 +123,7 @@ function opportunitiesDetailsNews({}) {
         
 
           <div className='opporDetailsText'>
-            <PostBody content={data} />
+            <PostBody content={JSON.parse(blogApiData.blog_body)[0]?.value} />
   </div>
 
   <div className='aboutAuthorBox'>
@@ -140,6 +147,8 @@ function opportunitiesDetailsNews({}) {
           </div>
 
         </div>
+         )}
+         </>
   )
 }
 
