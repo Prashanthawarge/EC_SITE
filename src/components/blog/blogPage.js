@@ -9,9 +9,7 @@ const FeatureNewsDetails = ({}) => {
   useEffect(() => {
     async function getUser() {
       try {
-        const response = await fetch(
-          ' http://43.205.94.230/api/blogs'
-        );
+        const response = await fetch(' http://43.205.94.230/api/blogs');
 
         if (!response.ok) {
           throw new Error(`Error! status: ${response.status}`);
@@ -46,14 +44,7 @@ const FeatureNewsDetails = ({}) => {
                     href={{
                       pathname: '/blogReadMore',
                       query: {
-                        author: blog.author.name,
-                        aboutAuthor: blog.author.about_author,
-                        shortDescription: blog.short_description,
                         id: blog.id,
-                        img: blog.blog_image,
-                        para: blog.blog_body,
-                        tags: blog.tags,
-                        title: blog.title,
                       },
                     }}
                   >
@@ -82,12 +73,16 @@ const FeatureNewsDetails = ({}) => {
                             <time>{format(date, 'LLLL	d, yyyy')}</time>
                             <h1>{blog.title}</h1>
                             <pre
-                className="blogPara"
-                style={{ fontFamily: 'jost', whiteSpace: 'pre-wrap' }}
-                dangerouslySetInnerHTML={{
-                  __html: JSON.parse(blog.short_description)[0]?.value,
-                }}
-              />
+                              className="blogPara"
+                              style={{
+                                fontFamily: 'jost',
+                                whiteSpace: 'pre-wrap',
+                              }}
+                              dangerouslySetInnerHTML={{
+                                __html: JSON.parse(blog.short_description)[0]
+                                  ?.value,
+                              }}
+                            />
                           </div>
                         </div>
                       </div>

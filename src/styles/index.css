@@ -318,6 +318,10 @@ h2 {
   flex-direction: column;
 }
 
+.newApprochContainer p b {
+ font-weight: 700;
+}
+
 .newApprochContainer p:nth-child(1) {
   color: #0065cf !important;
   font-size: 30px !important;
@@ -346,6 +350,10 @@ h2 {
   border-radius: 10px;
   padding: 15px;
   box-shadow: 3px 4px 10px #afadad;
+}
+
+.servicesContainer p b {
+  font-weight: 700;
 }
 
 .servicesContainer p:nth-child(1) {

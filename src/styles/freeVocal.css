@@ -32,6 +32,10 @@
   margin-left: 20px;
 }
 
+.vocalPre ul b {
+  font-weight: normal;
+}
+
 .vocalPre p:first-child{
   color: #0065cf !important;
   font-size: 30px !important;

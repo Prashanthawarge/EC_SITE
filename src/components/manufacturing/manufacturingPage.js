@@ -8,7 +8,7 @@ function IndexPage({}) {
   useEffect(() => {
     async function getUser() {
       try {
-        const response = await fetch(' http://43.205.94.230/api/manufactring');
+        const response = await fetch('http://43.205.94.230/api/manufactring');
 
         if (!response.ok) {
           throw new Error(`Error! status: ${response.status}`);
@@ -120,7 +120,7 @@ function IndexPage({}) {
 
             <div className="OverviewGoals">
               <div className="mobileImg">
-                <img src={apiData[0]?.production_analytics_image}></img>
+              <img src="mf4.png"></img>
               </div>
               <div>
                 <pre

@@ -172,8 +172,8 @@ const MobileMenu = () => {
                     style={{ display: isShownTech1 ? 'none' : 'flex' }}
                   >
                     <Link href="/customerAppDev">Custom App Development</Link>
-                    <Link href="/pytDev">Python Developer</Link>
-                    <Link href="/customerAppDev">C# Developer</Link>
+                    <Link href="/customerAppDev">C#.net & Sharepoint Developers</Link>
+                    <Link href="/pytDev">Django Python Developers</Link>
                     <Link href="#">ReactJS Developer</Link>
                     <Link href="#">React Native Developer</Link>
                   </div>
@@ -254,7 +254,7 @@ const MobileMenu = () => {
                 <Link href="#">AI & Predictive Analytics</Link>
                 <Link href="#">BlockChain: dApps | STO | ICO</Link>
                 <Link href="#">Sales, Service & Marketing CRM</Link>
-                <Link href="/pricing">Pricing</Link>
+                <Link href="/pricing">ROI Calculator</Link>
                 <Link href="/blog">Blog</Link>
               </div>
             </div>
@@ -418,7 +418,7 @@ const Navigation = () => {
                     <Link href="#">AI & Predictive Analytics</Link>
                     <Link href="#">BlockChain: dApps | STO | ICO</Link>
                     <Link href="#">Sales, Service & Marketing CRM</Link>
-                    <Link href="/pricing">Pricing</Link>
+                    <Link href="/pricing">ROI Calculator</Link>
                     <Link href="/blog">Blog</Link>
                   </div>
                 </a>

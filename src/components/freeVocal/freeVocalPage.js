@@ -7,7 +7,7 @@ function IndexPage({}) {
   useEffect(() => {
     async function getUser() {
       try {
-        const response = await fetch(' http://43.205.94.230/api/freevocal');
+        const response = await fetch('http://43.205.94.230/api/freevocal');
 
         if (!response.ok) {
           throw new Error(`Error! status: ${response.status}`);
@@ -25,7 +25,7 @@ function IndexPage({}) {
     getUser();
   }, []);
 
-  console.log('Api', apiData[0]?.django_python_and_flask_experts);
+
 
   return (
     <div>
@@ -196,159 +196,236 @@ function IndexPage({}) {
 
             <div className="OverviewGoals">
               <div>
-                <h1 className="leaderHeaderText">Audio / Podcasts / Music</h1>
-                <p className="leaderParaText">
-                  Self publish your music, audiobooks, podcasts & other audio
-                  files through this extension on freevocal.
-                </p>
+                <pre
+                  style={{
+                    fontFamily: 'jost',
+                    whiteSpace: 'pre-wrap',
+                  }}
+                  className="vocalPre"
+                  dangerouslySetInnerHTML={{
+                    __html: JSON.parse(apiData[0]?.audio)[0].value,
+                  }}
+                />
               </div>
               <div>
-                <h1 className="leaderHeaderText">Videos</h1>
-                <p className="leaderParaText">
-                  Self publish your videos, tutorials & other video files
-                  through this extension on freevocal.{' '}
-                </p>
-              </div>
-            </div>
-            <div className="OverviewGoals">
-              <div>
-                <h1 className="leaderHeaderText">Video courses</h1>
-                <p className="leaderParaText">
-                  Self publish your learning content in the form of video
-                  tutorials & configure drip content to your users through this
-                  extension on freevocal.{' '}
-                </p>
-              </div>
-              <div>
-                <h1 className="leaderHeaderText">Gallery</h1>
-                <p className="leaderParaText">
-                  Self publish your images & PDF files through this extension on
-                  freevocal.
-                </p>
+                <pre
+                  style={{
+                    fontFamily: 'jost',
+                    whiteSpace: 'pre-wrap',
+                  }}
+                  className="vocalPre"
+                  dangerouslySetInnerHTML={{
+                    __html: JSON.parse(apiData[0]?.videos)[0].value,
+                  }}
+                />
               </div>
             </div>
             <div className="OverviewGoals">
               <div>
-                <h1 className="leaderHeaderText">Live Video</h1>
-                <p className="leaderParaText">
-                  Broadcast your live audio - video stream to all your users.
-                </p>
+                <pre
+                  style={{
+                    fontFamily: 'jost',
+                    whiteSpace: 'pre-wrap',
+                  }}
+                  className="vocalPre"
+                  dangerouslySetInnerHTML={{
+                    __html: JSON.parse(apiData[0]?.video_courses)[0].value,
+                  }}
+                />
               </div>
               <div>
-                <h1 className="leaderHeaderText">eBooks</h1>
-                <p className="leaderParaText">
-                  Self publish your EPUB ebooks securely through this extension.
-                </p>
-              </div>
-            </div>
-            <div className="OverviewGoals">
-              <div>
-                <h1 className="leaderHeaderText">In app purchases</h1>
-                <p className="leaderParaText">
-                  Allow your users to purchase content directly from within your
-                  freevocalapp with our in app purchase extension. Transaction &
-                  payment gateway charges are applicable as per the selected
-                  plan.
-                </p>
-              </div>
-              <div>
-                <h1 className="leaderHeaderText">Microsite</h1>
-                <p className="leaderParaText">
-                  Allow your users to purchase Audio & Video content from your
-                  personalised micro website. All content purchased by users on
-                  the micro website will be available on your users freevocal
-                  apps. Transaction & payment gateway charges are applicable as
-                  per the selected plan.
-                </p>
+                <pre
+                  style={{
+                    fontFamily: 'jost',
+                    whiteSpace: 'pre-wrap',
+                  }}
+                  className="vocalPre"
+                  dangerouslySetInnerHTML={{
+                    __html: JSON.parse(apiData[0]?.gallery)[0].value,
+                  }}
+                />
               </div>
             </div>
             <div className="OverviewGoals">
               <div>
-                <h1 className="leaderHeaderText">Subscriptions</h1>
-                <p className="leaderParaText">
-                  Allow your users to purchase Audio & Video content from your
-                  personalised micro website. All content purchased by users on
-                  the micro website will be available on your users freevocal
-                  apps. This content can be sold via annual subscription.
-                  Transaction & payment gateway charges are applicable as per
-                  the selected plan.{' '}
-                </p>
+                <pre
+                  style={{
+                    fontFamily: 'jost',
+                    whiteSpace: 'pre-wrap',
+                  }}
+                  className="vocalPre"
+                  dangerouslySetInnerHTML={{
+                    __html: JSON.parse(apiData[0]?.live_video)[0].value,
+                  }}
+                />
               </div>
               <div>
-                <h1 className="leaderHeaderText">Quizzes</h1>
-                <p className="leaderParaText">
-                  Setup quizzes for your freevocal app users from the console.
-                  Users will be able to appear for the quiz on their mobile
-                  devices itself. Quiz results will be shown in the console.{' '}
-                </p>
-              </div>
-            </div>
-            <div className="OverviewGoals">
-              <div>
-                <h1 className="leaderHeaderText">eCommerce</h1>
-                <p className="leaderParaText">
-                  Selling exclusive merchandise? Easily setup a mobile ready
-                  ecommerce storefront within your freevocal app. Users can buy
-                  & pay for your exclusive goodies from the app itself.{' '}
-                </p>
-              </div>
-              <div>
-                <h1 className="leaderHeaderText">Tickets</h1>
-                <p className="leaderParaText">
-                  Selling exclusive tickets to your concerts? Easily setup a
-                  mobile ready ticketing storefront within your freevocal app.
-                  Users can buy & pay for your exclusive tickets from the app
-                  itself.{' '}
-                </p>
+                <pre
+                  style={{
+                    fontFamily: 'jost',
+                    whiteSpace: 'pre-wrap',
+                  }}
+                  className="vocalPre"
+                  dangerouslySetInnerHTML={{
+                    __html: JSON.parse(apiData[0]?.ebook)[0].value,
+                  }}
+                />
               </div>
             </div>
             <div className="OverviewGoals">
               <div>
-                <h1 className="leaderHeaderText">Polls</h1>
-                <p className="leaderParaText">
-                  Selling exclusive merchandise? Easily setup a mobile ready
-                  ecommerce storefront within your freevocal app. Users can buy
-                  & pay for your exclusive goodies from the app itself.{' '}
-                </p>
+                <pre
+                  style={{
+                    fontFamily: 'jost',
+                    whiteSpace: 'pre-wrap',
+                  }}
+                  className="vocalPre"
+                  dangerouslySetInnerHTML={{
+                    __html: JSON.parse(apiData[0]?.in_app_purchases)[0].value,
+                  }}
+                />
               </div>
               <div>
-                <h1 className="leaderHeaderText">Google Drive</h1>
-                <p className="leaderParaText">
-                  Share files on Google Drive & have all your users access them
-                  through their freevocalconsole.{' '}
-                </p>
-              </div>
-            </div>
-            <div className="OverviewGoals">
-              <div>
-                <h1 className="leaderHeaderText">Shared Calendar</h1>
-                <p className="leaderParaText">
-                  Share your event calendar on Google Calendar & have all your
-                  users access them through their freevocal console.{' '}
-                </p>
-              </div>
-              <div>
-                <h1 className="leaderHeaderText">Group Chat</h1>
-                <p className="leaderParaText">
-                  Enterprise chat to allow your freevocalconsole users to
-                  communicate with each other.{' '}
-                </p>
+                <pre
+                  style={{
+                    fontFamily: 'jost',
+                    whiteSpace: 'pre-wrap',
+                  }}
+                  className="vocalPre"
+                  dangerouslySetInnerHTML={{
+                    __html: JSON.parse(apiData[0]?.microsite)[0].value,
+                  }}
+                />
               </div>
             </div>
             <div className="OverviewGoals">
               <div>
-                <h1 className="leaderHeaderText">Facebook</h1>
-                <p className="leaderParaText">
-                  Embed your Facebook page stream directly inside your freevocal
-                  app & keep your app users informed with your latest posts.{' '}
-                </p>
+                <pre
+                  style={{
+                    fontFamily: 'jost',
+                    whiteSpace: 'pre-wrap',
+                  }}
+                  className="vocalPre"
+                  dangerouslySetInnerHTML={{
+                    __html: JSON.parse(apiData[0]?.subscriptions)[0].value,
+                  }}
+                />
               </div>
               <div>
-                <h1 className="leaderHeaderText">Twitter</h1>
-                <p className="leaderParaText">
-                  Embed your Twitter feed directly inside your freevocal app &
-                  keep your app users informed with your latest posts.
-                </p>
+                <pre
+                  style={{
+                    fontFamily: 'jost',
+                    whiteSpace: 'pre-wrap',
+                  }}
+                  className="vocalPre"
+                  dangerouslySetInnerHTML={{
+                    __html: JSON.parse(apiData[0]?.quizzes)[0].value,
+                  }}
+                />
+              </div>
+            </div>
+            <div className="OverviewGoals">
+              <div>
+                <pre
+                  style={{
+                    fontFamily: 'jost',
+                    whiteSpace: 'pre-wrap',
+                  }}
+                  className="vocalPre"
+                  dangerouslySetInnerHTML={{
+                    __html: JSON.parse(apiData[0]?.ecommerce)[0].value,
+                  }}
+                />
+              </div>
+              <div>
+                <pre
+                  style={{
+                    fontFamily: 'jost',
+                    whiteSpace: 'pre-wrap',
+                  }}
+                  className="vocalPre"
+                  dangerouslySetInnerHTML={{
+                    __html: JSON.parse(apiData[0]?.tickets)[0].value,
+                  }}
+                />
+              </div>
+            </div>
+            <div className="OverviewGoals">
+              <div>
+                <pre
+                  style={{
+                    fontFamily: 'jost',
+                    whiteSpace: 'pre-wrap',
+                  }}
+                  className="vocalPre"
+                  dangerouslySetInnerHTML={{
+                    __html: JSON.parse(apiData[0]?.polls)[0].value,
+                  }}
+                />
+              </div>
+              <div>
+                <pre
+                  style={{
+                    fontFamily: 'jost',
+                    whiteSpace: 'pre-wrap',
+                  }}
+                  className="vocalPre"
+                  dangerouslySetInnerHTML={{
+                    __html: JSON.parse(apiData[0]?.google_drive)[0].value,
+                  }}
+                />
+              </div>
+            </div>
+            <div className="OverviewGoals">
+              <div>
+                <pre
+                  style={{
+                    fontFamily: 'jost',
+                    whiteSpace: 'pre-wrap',
+                  }}
+                  className="vocalPre"
+                  dangerouslySetInnerHTML={{
+                    __html: JSON.parse(apiData[0]?.shared_calender)[0].value,
+                  }}
+                />
+              </div>
+              <div>
+                <pre
+                  style={{
+                    fontFamily: 'jost',
+                    whiteSpace: 'pre-wrap',
+                  }}
+                  className="vocalPre"
+                  dangerouslySetInnerHTML={{
+                    __html: JSON.parse(apiData[0]?.group_chat)[0].value,
+                  }}
+                />
+              </div>
+            </div>
+            <div className="OverviewGoals">
+              <div>
+                <pre
+                  style={{
+                    fontFamily: 'jost',
+                    whiteSpace: 'pre-wrap',
+                  }}
+                  className="vocalPre"
+                  dangerouslySetInnerHTML={{
+                    __html: JSON.parse(apiData[0]?.facebook)[0].value,
+                  }}
+                />
+              </div>
+              <div>
+                <pre
+                  style={{
+                    fontFamily: 'jost',
+                    whiteSpace: 'pre-wrap',
+                  }}
+                  className="vocalPre"
+                  dangerouslySetInnerHTML={{
+                    __html: JSON.parse(apiData[0]?.twitter)[0].value,
+                  }}
+                />
               </div>
             </div>
 

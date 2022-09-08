@@ -22,6 +22,8 @@ function Index({}) {
     getUser();
   }, []);
 
+  // console.log(JSON.parse(apiData[0]))
+
   return (
     <>
       {apiData == '' ? (
@@ -76,52 +78,62 @@ function Index({}) {
 
             <div className="leaderShip">
               <h1 className="leaderHeaderText">Leadership</h1>
+
               <div className="imgDetailsContainer">
                 <div className="leaderimg">
-                  <img src="sushant.png"></img>
+                  <img src={apiData[0]?.leaders[0]?.image}></img>
                 </div>
                 <div className="leaderDetails">
-                  <p className="leaderParaText">
-                    Sushant is the founder of EC Infosolutions. His experience
-                    of 15 years includes building technology products for over
-                    250 startups in 18 countries. His interests include
-                    analytics, machine learning, IoT, server-less computing,
-                    etc. He is a certified Google Cloud Partner and AWS expert.
-                  </p>
+                  <pre
+                    className="leaderParaText"
+                    style={{
+                      fontFamily: 'jost',
+                      whiteSpace: 'pre-wrap',
+                    }}
+                    dangerouslySetInnerHTML={{
+                      __html: JSON.parse(apiData[0]?.leaders[0]?.about_leader)[0]
+                        .value,
+                    }}
+                  />
                 </div>
-                <div></div>
               </div>
 
               <div className="imgDetailsContainer">
                 <div className="leaderimg">
-                  <img src="Shreyasee.png"></img>
+                  <img src={apiData[0]?.leaders[1]?.image}></img>
                 </div>
                 <div className="leaderDetails">
-                  <p className="leaderParaText">
-                    Shreyasee has over 15 years of experience in CRM, eCommerce,
-                    direct sales, digital marketing, and BPR projects. Her
-                    passions include reading books on popular science, AI, &
-                    keto, practicing Yoga, and using organic skincare products.
-                    She is a certified Google Cloud Practitioner.
-                  </p>
+                  <pre
+                    className="leaderParaText"
+                    style={{
+                      fontFamily: 'jost',
+                      whiteSpace: 'pre-wrap',
+                    }}
+                    dangerouslySetInnerHTML={{
+                      __html: JSON.parse(apiData[0]?.leaders[1]?.about_leader)[0]
+                        .value,
+                    }}
+                  />
                 </div>
-                <div></div>
               </div>
 
               <div className="imgDetailsContainer">
                 <div className="leaderimg">
-                  <img src="kb.png"></img>
+                  <img src={apiData[0]?.leaders[2]?.image}></img>
                 </div>
                 <div className="leaderDetails">
-                  <p className="leaderParaText">
-                    Kaustubh brings 20 years of experience in research and
-                    technology development across biotechnology,
-                    instrumentation, nanotechnology and informatics. He obtained
-                    his Masters and Doctoral degrees from The Ohio State
-                    University.
-                  </p>
+                  <pre
+                    className="leaderParaText"
+                    style={{
+                      fontFamily: 'jost',
+                      whiteSpace: 'pre-wrap',
+                    }}
+                    dangerouslySetInnerHTML={{
+                      __html: JSON.parse(apiData[0]?.leaders[2]?.about_leader)[0]
+                        .value,
+                    }}
+                  />
                 </div>
-                <div></div>
               </div>
             </div>
 
