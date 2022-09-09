@@ -1,9 +1,9 @@
-import Button from '@/components/button';
 import axios from 'axios';
 import Link from 'next/link';
 import React, { useState } from 'react';
 import 'react-phone-number-input/style.css';
 import { tw } from 'twind';
+import Button from '../../components/button/index';
 
 function Footer() {
   const [values, setValues] = useState({
