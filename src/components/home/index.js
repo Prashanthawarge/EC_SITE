@@ -27,6 +27,7 @@ function IndexPage({}) {
 
     getUser();
   }, []);
+  console.log('homeApi',homeApiData)
 
   return (
     <div>

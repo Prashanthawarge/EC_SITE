@@ -22,7 +22,7 @@ function Index({}) {
     getUser();
   }, []);
 
-  // console.log(JSON.parse(apiData[0]))
+  console.log('leaderShip',apiData)
 
   return (
     <>
