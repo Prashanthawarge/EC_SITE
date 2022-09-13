@@ -182,45 +182,15 @@ function Index({}) {
             <div className="moreFreedomContainer">
               <h1 className="leaderHeaderText">Partnerships & affiliations</h1>
               <div className="partnerShips">
-                <Link href="">
-                  <img className="partnerImg" src="GoogleCloud.png"></img>
-                </Link>
-                <Link href="">
-                  <img className="partnerImg" src="AWS.png"></img>
-                </Link>
-                <Link href="">
-                  <img className="partnerImg" src="Shopify.png"></img>
-                </Link>
-                <Link href="">
-                  <img className="partnerImg" src="BNI.png"></img>
-                </Link>
-                <Link href="">
-                  <img className="partnerImg" src="zoho.png"></img>
-                </Link>
-                <Link href="">
-                  <img className="partnerImg" src="nasscom.png"></img>
-                </Link>
-                <Link href="">
-                  <img className="partnerImg" src="soil.png"></img>
-                </Link>
-                <Link href="">
-                  <img className="partnerImg" src="mccia.png"></img>
-                </Link>
-                <Link href="">
-                  <img className="partnerImg" src="clutch.png"></img>
-                </Link>
-                <Link href="">
-                  <img
-                    className="partnerImg"
-                    src="BestInSingaporeLogo.png"
-                  ></img>
-                </Link>
-                <Link href="">
-                  <img
-                    className="partnerImg"
-                    src="Top-in-Singapore-Award.png"
-                  ></img>
-                </Link>
+                {
+                  apiData[0]?.partnerships_and_affection?.map((value, index)=>{
+                    return (
+                      <Link href="">
+                      <img className="partnerImg" key={value.id} src={value.file}></img>
+                    </Link>
+                    )
+                  })
+                }
               </div>
             </div>
           </div>

@@ -25,7 +25,7 @@ function pytDevPage({}) {
   };
   const handleSubmit = async (e) => {
     e.preventDefault();
-    console.log(values);
+
     axios({
       method: 'post',
       url: 'http://3.108.60.146:8000/api/contact',
