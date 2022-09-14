@@ -91,7 +91,6 @@ input {
   display: flex;
   justify-content: center;
   flex-direction: row;
-  color: #2d2d2d;
   float: left;
   overflow: hidden;
 }
