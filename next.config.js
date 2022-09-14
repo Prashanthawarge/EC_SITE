@@ -1,5 +1,5 @@
 module.exports = {
-
+  compress: false,
   reactStrictMode: true,
   images: {
     domains: ["ecinfosolutions.com"],
