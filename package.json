@@ -33,8 +33,12 @@
     "@svgr/webpack": "5.5.0",
     "@twind/next": "^1.0.9",
     "@twind/react": "^0.0.4",
+    "@zeit/next-css": "^1.0.1",
+    "@zeit/next-sass": "^1.0.1",
     "axios": "^0.27.2",
+    "compression-webpack-plugin": "^10.0.0",
     "date-fns": "^2.29.1",
+    "file-loader": "^6.2.0",
     "next": "^12.2.5",
     "next-seo": "4.20.0",
     "react": "17.0.1",
@@ -42,11 +46,13 @@
     "react-icons": "^4.4.0",
     "react-phone-number-input": "^3.2.11",
     "react-youtube": "9.0.3",
-    "twind": "^0.15.4"
+    "twind": "^0.15.4",
+    "url-loader": "^4.1.1"
   },
   "devDependencies": {
     "@types/node": "^18.7.16",
     "@types/react": "^18.0.19",
+    "ajv": "^7.2.4",
     "cz-conventional-changelog": "3.3.0",
     "eslint": "7.20.0",
     "husky": "5.0.9",
