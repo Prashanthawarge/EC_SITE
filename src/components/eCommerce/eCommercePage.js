@@ -1,5 +1,4 @@
 import React from 'react';
-import YouTube from 'react-youtube';
 
 function IndexPage({}) {
   return (
@@ -408,7 +407,10 @@ function IndexPage({}) {
 
           <div className="mobileContainer" style={{ marginTop: '100px' }}>
             <div className="mobileImg">
-              <YouTube videoId="KJJeqr8POnE" className="youtube" />
+              <iframe
+                  className="youtube"
+                  src={"https://www.youtube.com/embed/KJJeqr8POnE"}
+                ></iframe>
             </div>
             <div
               className="mobileTexBox"
