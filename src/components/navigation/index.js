@@ -310,7 +310,7 @@ const Navigation = () => {
                   )}`}
                 >
                   <div className="dropbtn">
-                    <Link href="#">ABOUT EC </Link>
+                    <Link href="#">ABOUT E </Link>
                     <img
                       className={tw(`w-3 mx-2`)}
                       src="downArrow.svg"
